@@ -11,13 +11,13 @@ to manage students, teachers, subjects, and schedules efficiently.
 
 ## 📸 Preview
 
-### Dashboard
+
 ![Dashboard](https://github.com/Amira1326/School-Management-System/blob/main/image.png)
 
-### Students Page
+
 ![Students](https://github.com/Amira1326/School-Management-System/blob/main/image%20(1).png)
 
-### Teachers Page
+
 ![Teachers](https://github.com/Amira1326/School-Management-System/blob/main/image%20(2).png)
 
 ---
