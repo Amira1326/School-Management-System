@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل الدخول - مركز الجود التعليمي</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    :root {
+      font-size: 16px;
+      --primary-color: #5F6B75;
+      --secondary-color-start: #ffffff;
+      --secondary-color-end: #E0BBE4;
+      --accent-color: #89355d;
+      --text-color: #343a40;
+      --heading-color: #212529;
+      --card-bg: #ffffff;
+      --shadow-light: rgba(0, 0, 0, 0.08);
+      --shadow-medium: rgba(0, 0, 0, 0.15);
+      --transition-speed: 0.3s ease-in-out;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom,
+                                  var(--secondary-color-start) 0%,
+                                  var(--secondary-color-end) 100%);
+      color: var(--text-color);
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1.6;
+      position: relative;
+      animation: backgroundGlow 8s infinite alternate ease-in-out;
+    }
+
+    /* تغيير الأيقونة إلى صورة في الخلفية */
+    .background-icon {
+      position: absolute;
+      bottom: -150px;
+      right: -150px;
+      width: 700px;
+      height: 700px;
+      opacity: 0.1; /* تعديل الشفافية حسب الحاجة */
+      z-index: 1;
+      pointer-events: none;
+      transform: rotate(20deg);
+      animation: iconGlow 6s infinite alternate ease-in-out;
+      background-image: url('back.png'); /* استبدل هذا بالمسار الفعلي للصورة */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .logo {
+      position: absolute;
+      top: 1.5625rem;
+      left: 1.5625rem;
+      width: 9.375rem;
+      height: auto;
+      animation: fadeInLeft 1.2s ease-out forwards;
+      z-index: 10;
+      filter: drop-shadow(0 0.1875rem 0.375rem rgba(0, 0, 0, 0.08));
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      box-sizing: border-box;
+      padding: 1.5625rem;
+      z-index: 5;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 2.8rem;
+      color: var(--heading-color);
+      opacity: 0;
+      animation: fadeSlideDown 1.2s ease-out forwards;
+      animation-delay: 0.4s;
+      letter-spacing: 0.06rem;
+      line-height: 1.4;
+      text-align: center;
+      text-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.05);
+    }
+
+    .cards {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 40.625rem;
+      width: 100%;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 1.5rem;
+      padding: 2.1875rem 2.8125rem;
+      flex: 1;
+      min-width: 11.25rem;
+      max-width: 15.625rem;
+      text-align: center;
+      box-shadow: 0 0.6rem 1.5rem var(--shadow-light);
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(2.5rem);
+      animation: fadeUp 1s ease-out forwards;
+      border: 0.0625rem solid rgba(0, 0, 0, 0.03);
+    }
+
+    .card:nth-child(1) {
+      animation-delay: 0.7s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .card:hover {
+      transform: translateY(-0.8rem) scale(1.06);
+      box-shadow: 0 1.2rem 2.5rem var(--shadow-medium);
+      background-color: #f0f8ff;
+    }
+
+    .card span.material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 1.25rem;
+      transition: transform var(--transition-speed), color var(--transition-speed);
+      color: var(--primary-color);
+    }
+
+    .card:hover span.material-symbols-outlined {
+      transform: scale(1.15);
+      color: var(--accent-color);
+    }
+
+    .card p {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--heading-color);
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeSlideDown {
+      0% { opacity: 0; transform: translateY(-2.5rem); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(2.5rem); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInLeft {
+      0% { opacity: 0; transform: translateX(-3.5rem); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes backgroundGlow {
+      0% { background-color: var(--secondary-color-start); }
+      50% { background-color: #f7e6fc; }
+      100% { background-color: var(--secondary-color-start); }
+    }
+
+    @keyframes iconGlow {
+      0% { opacity: 0.03; filter: drop-shadow(0 0 0.2rem rgba(var(--primary-color-rgb), 0.1)); }
+      50% { opacity: 0.05; filter: drop-shadow(0 0 0.8rem rgba(var(--primary-color-rgb), 0.3)); }
+      100% { opacity: 0.03; filter: drop-shadow(0 0 0.2rem rgba(var(--primary-color-rgb), 0.1)); }
+    }
+
+    /* التعديلات المتجاوبة */
+    @media (max-width: 62em) {
+      :root { font-size: 15px; }
+      h1 { font-size: 1.9rem; margin-bottom: 2.2rem; }
+      .cards { gap: 1.8rem; max-width: 38rem; }
+      .card { min-width: 10rem; max-width: 14rem; padding: 2rem 2.6rem; }
+      .background-icon {
+        width: 550px;
+        height: 550px;
+        bottom: -100px;
+        right: -100px;
+      }
+    }
+
+    @media (max-width: 48em) {
+      :root { font-size: 14px; }
+      h1 { font-size: 1.7rem; margin-bottom: 1.8rem; max-width: 90vw; }
+      .cards { flex-direction: column; gap: 1.2rem; max-width: 20rem; }
+      .card { width: 100%; max-width: none; padding: 1.6rem; }
+      .card span.material-symbols-outlined { font-size: 3.2rem; margin-bottom: 1rem; }
+      .card p { font-size: 1.1rem; }
+      .background-icon {
+        width: 400px;
+        height: 400px;
+        bottom: -70px;
+        right: -70px;
+        opacity: 0.05;
+      }
+    }
+
+    @media (max-width: 30em) {
+      :root { font-size: 13px; }
+      h1 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+      .card { padding: 1.4rem; }
+      .card span.material-symbols-outlined { font-size: 2.8rem; margin-bottom: 0.8rem; }
+      .card p { font-size: 1rem; }
+      .background-icon {
+        width: 280px;
+        height: 280px;
+        bottom: -50px;
+        right: -50px;
+        opacity: 0.07;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="شعار مركز الجود التعليمي" class="logo" />
+
+  <div class="background-icon">
+    <!-- لا حاجة لأيقونة SVG هنا -->
+  </div>
+
+  <div class="container">
+    <h1>أهلاً بك  <br> يرجى اختيار نوع تسجيل الدخول</h1>
+    <div class="cards">
+      <div class="card" onclick="location.href='teacher-login.php'">
+    <span class="material-symbols-outlined">person</span> <!-- تغيير الأيقونة هنا إلى "شخص" -->
+    <p>تسجيل دخول المعلمين</p>
+</div>
+
+
+      <div class="card" onclick="location.href='admin-login.php'">
+        <span class="material-symbols-outlined">admin_panel_settings</span>
+        <p>تسجيل دخول </p>
+        <p>الإدارة</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
